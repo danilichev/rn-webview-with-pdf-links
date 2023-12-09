@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
-import { HomeScreen, WebScreen } from "src/screens";
+import { HomeScreen, PdfScreen, WebScreen } from "src/screens";
 
 import { screenNames } from "./constants";
 import { MainStackParamList } from "./types";
@@ -17,6 +17,11 @@ export const MainStackNavigator = () => {
         options={{ title: "Home" }}
       />
       <MainStack.Group screenOptions={{ presentation: "modal" }}>
+        <MainStack.Screen
+          component={PdfScreen}
+          name={screenNames.PdfScreen}
+          options={({ route }) => ({ title: route.params?.title })}
+        />
         <MainStack.Screen
           component={WebScreen}
           name={screenNames.WebScreen}

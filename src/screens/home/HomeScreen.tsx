@@ -13,6 +13,13 @@ type Props = NativeStackScreenProps<
 >;
 
 export const HomeScreen = ({ navigation }: Props) => {
+  const onPdfLinkPress = useCallback(() => {
+    navigation.navigate(screenNames.PdfScreen, {
+      title: "dummy.pdf",
+      url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    });
+  }, [navigation]);
+
   const onWebLinkPress = useCallback(() => {
     navigation.navigate(screenNames.WebScreen, {
       title: "GitHub",
@@ -23,7 +30,10 @@ export const HomeScreen = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
       <Touchable onPress={onWebLinkPress}>
-        <Text style={styles.webLink}>Open Web Link</Text>
+        <Text style={styles.link}>Open Web Link</Text>
+      </Touchable>
+      <Touchable onPress={onPdfLinkPress}>
+        <Text style={styles.link}>Open Pdf</Text>
       </Touchable>
     </View>
   );
