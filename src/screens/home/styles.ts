@@ -6,4 +6,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
+  webLink: {
+    color: "blue",
+    textDecorationLine: "underline",
+  },
 });
