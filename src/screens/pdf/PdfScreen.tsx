@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import React from "react";
+import React, { useEffect } from "react";
 import { Platform, View } from "react-native";
 import Pdf from "react-native-pdf";
 
@@ -13,6 +13,10 @@ type Props = NativeStackScreenProps<
 >;
 
 export const PdfScreen = ({ route }: Props) => {
+  useEffect(() => {
+    console.log("PdfScreen", route.params.url);
+  }, [route.params.url]);
+
   return (
     <View style={styles.container}>
       <Pdf

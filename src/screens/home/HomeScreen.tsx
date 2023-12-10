@@ -27,13 +27,23 @@ export const HomeScreen = ({ navigation }: Props) => {
     });
   }, [navigation]);
 
+  const onWebLinkWithPdfLinksPress = useCallback(() => {
+    navigation.navigate(screenNames.WebScreen, {
+      title: "Link to dummy.pdf",
+      url: "https://www.google.com/search?q=dummy+pdf+w3c",
+    });
+  }, [navigation]);
+
   return (
     <View style={styles.container}>
       <Touchable onPress={onWebLinkPress}>
-        <Text style={styles.link}>Open Web Link</Text>
+        <Text style={styles.link}>Open web page</Text>
       </Touchable>
       <Touchable onPress={onPdfLinkPress}>
-        <Text style={styles.link}>Open Pdf</Text>
+        <Text style={styles.link}>Open pfd</Text>
+      </Touchable>
+      <Touchable onPress={onWebLinkWithPdfLinksPress}>
+        <Text style={styles.link}>Open web page with links to pdf files</Text>
       </Touchable>
     </View>
   );
